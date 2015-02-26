@@ -464,8 +464,10 @@ return {
 
       this.urlForGetRequests(serverUrl(url))
         .json(YES)
-        .notify(null, function(response) { this.receivedLoadExternalDocumentResponse(id, response); }.bind(this))
-        .notify(null, function() { deferred.resolve(); })
+        .notify(null, function(response) {
+          this.receivedLoadExternalDocumentResponse(id, response);
+          deferred.resolve();
+        }.bind(this))
         .send();
 
       return deferred;
